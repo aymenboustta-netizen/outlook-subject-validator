@@ -5,15 +5,13 @@
            xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
            xsi:type="MailApp">
 
-  <Id>PUT-YOUR-GUID-HERE</Id>
+  <Id>37ef81b7-de67-4a15-b6f4-46e20d43aede</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>Local Test</ProviderName>
   <DefaultLocale>nl-NL</DefaultLocale>
 
   <DisplayName DefaultValue="Subject Validator (Local)"/>
   <Description DefaultValue="Lokale test voor subject-validatie."/>
-  <IconUrl DefaultValue="https://localhost:3000/icon-64.png"/>
-  <HighResolutionIconUrl DefaultValue="https://localhost:3000/icon-128.png"/>
 
   <Hosts>
     <Host Name="Mailbox"/>
@@ -35,6 +33,7 @@
                     xsi:type="VersionOverridesV1_1">
     <Hosts>
       <Host xsi:type="MailHost">
+
         <Runtimes>
           <Runtime resid="WebViewRuntime.Url" lifetime="long">
             <Override type="javascript" resid="JSRuntime.Url"/>
@@ -51,17 +50,19 @@
             <SourceLocation resid="WebViewRuntime.Url"/>
           </ExtensionPoint>
         </DesktopFormFactor>
+
       </Host>
     </Hosts>
 
     <Resources>
       <bt:Urls>
         <bt:Url id="WebViewRuntime.Url"
-                DefaultValue="https://localhost:3000/sending.html"/>
+                DefaultValue="https://aymenboustta-netizen.github.io/outlook-subject-validator/sending.html"/>
         <bt:Url id="JSRuntime.Url"
-                DefaultValue="https://localhost:3000/sending.js"/>
+                DefaultValue="https://aymenboustta-netizen.github.io/outlook-subject-validator/sending.js"/>
       </bt:Urls>
     </Resources>
+
   </VersionOverrides>
 
 </OfficeApp>
