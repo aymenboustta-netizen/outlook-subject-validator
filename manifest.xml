@@ -5,7 +5,7 @@
            xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
            xsi:type="MailApp">
 
-  <Id>37ef81b7-de67-4a15-b6f4-46e20d43aede</Id>
+  <Id>7121217d-9452-471c-a755-d42fde8fdf3d</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>Local Test</ProviderName>
   <DefaultLocale>nl-NL</DefaultLocale>
