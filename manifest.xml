@@ -5,7 +5,7 @@
            xsi:type="MailApp">
 
   <Id>48a2ca1e-d539-45fd-ae04-75fe80ad7f6e</Id>
-  <Version>1.0.0.2</Version>
+  <Version>1.0.0.3</Version>
   <ProviderName>Local Test</ProviderName>
   <DefaultLocale>nl-NL</DefaultLocale>
 
@@ -16,14 +16,13 @@
     <Host Name="Mailbox"/>
   </Hosts>
 
-  <!-- Top-level requirements dekken OnMessageSend (>= 1.10) -->
+  <!-- OnMessageSend vereist Mailbox >= 1.10; 1.12 is ok -->
   <Requirements>
     <Sets DefaultMinVersion="1.12">
       <Set Name="Mailbox"/>
     </Sets>
   </Requirements>
 
-  <!-- Minder rechten is beter; pas aan indien je schrijftoegang nodig hebt -->
   <Permissions>ReadItem</Permissions>
 
   <Rule xsi:type="RuleCollection" Mode="Or">
@@ -33,7 +32,6 @@
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1"
                     xsi:type="VersionOverridesV1_1">
 
-    <!-- Aanrader: requirements ook binnen VersionOverrides specificeren -->
     <Requirements>
       <bt:Sets DefaultMinVersion="1.10">
         <bt:Set Name="Mailbox"/>
@@ -42,10 +40,9 @@
 
     <Hosts>
       <Host xsi:type="MailHost">
-
         <Runtimes>
-          <Runtime resid="WebViewRuntime.Url" lifetime="long">
-            <Override type="javascript" resid="JSRuntime.Url"/>
+          <Runtime resid="WebViewRuntimeUrl" lifetime="long">
+            <Override type="javascript" resid="JSRuntimeUrl"/>
           </Runtime>
         </Runtimes>
 
@@ -55,7 +52,7 @@
               <LaunchEvent Type="OnMessageSend" FunctionName="onMessageSendHandler"/>
             </LaunchEvents>
             <SendMode>PromptUser</SendMode>
-            <SourceLocation resid="WebViewRuntime.Url"/>
+            <SourceLocation resid="WebViewRuntimeUrl"/>
           </ExtensionPoint>
         </DesktopFormFactor>
 
@@ -64,10 +61,10 @@
 
     <Resources>
       <bt:Urls>
-        <bt:Url id="WebViewRuntime.Url"
-                DefaultValue="https://aymenboustta-netizen.github.io/outlook-subject-validator/sending.html"/>
-        <bt:Url id="JSRuntime.Url"
-                DefaultValue="https://aymenboustta-netizen.github.io/outlook-subject-validator/sending.js"/>
+        <bt:Url id="WebViewRuntimeUrl"
+                DefaultValue="https://aymenboustta-netizen.github.io/outlook-subject-validator/sending.html?v=1003"/>
+        <bt:Url id="JSRuntimeUrl"
+                DefaultValue="https://aymenboustta-netizen.github.io/outlook-subject-validator/sending.js?v=1003"/>
       </bt:Urls>
     </Resources>
 
