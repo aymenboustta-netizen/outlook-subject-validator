@@ -2,7 +2,6 @@
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
-           xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
            xsi:type="MailApp">
 
   <Id>7121217d-9452-471c-a755-d42fde8fdf3d</Id>
@@ -17,20 +16,30 @@
     <Host Name="Mailbox"/>
   </Hosts>
 
+  <!-- Top-level requirements dekken OnMessageSend (>= 1.10) -->
   <Requirements>
     <Sets DefaultMinVersion="1.12">
       <Set Name="Mailbox"/>
     </Sets>
   </Requirements>
 
-  <Permissions>ReadWriteItem</Permissions>
+  <!-- Minder rechten is beter; pas aan indien je schrijftoegang nodig hebt -->
+  <Permissions>ReadItem</Permissions>
 
   <Rule xsi:type="RuleCollection" Mode="Or">
     <Rule xsi:type="ItemIs" ItemType="Message" FormType="Edit"/>
   </Rule>
 
-  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides"
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1"
                     xsi:type="VersionOverridesV1_1">
+
+    <!-- Aanrader: requirements ook binnen VersionOverrides specificeren -->
+    <Requirements>
+      <bt:Sets DefaultMinVersion="1.10">
+        <bt:Set Name="Mailbox"/>
+      </bt:Sets>
+    </Requirements>
+
     <Hosts>
       <Host xsi:type="MailHost">
 
@@ -43,8 +52,7 @@
         <DesktopFormFactor>
           <ExtensionPoint xsi:type="LaunchEvent">
             <LaunchEvents>
-              <LaunchEvent Type="OnMessageSend"
-                           FunctionName="onMessageSendHandler"/>
+              <LaunchEvent Type="OnMessageSend" FunctionName="onMessageSendHandler"/>
             </LaunchEvents>
             <SendMode>PromptUser</SendMode>
             <SourceLocation resid="WebViewRuntime.Url"/>
