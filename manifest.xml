@@ -4,7 +4,7 @@
            xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
            xsi:type="MailApp">
 
-  <Id>48a2ca1e-d539-45fd-ae04-75fe80ad7f6e</Id>
+  <Id>d0a88dbe-ac82-4180-9632-a7f4b8aa4c50</Id>
   <Version>1.0.0.3</Version>
   <ProviderName>Local Test</ProviderName>
   <DefaultLocale>nl-NL</DefaultLocale>
